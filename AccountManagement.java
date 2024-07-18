@@ -6,15 +6,13 @@ public class AccountManagement {
 
     public static void main(String[] args) {
         try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/account_db", "postgres", "dangerous")) {
-            // Insertion de 2 comptes
+            
             insertAccount(conn, 16, 220);
             insertAccount(conn, 15, 190);
 
-            // Modification du solde des comptes
             updateAccountBalance(conn, 1, 140);
             updateAccountBalance(conn, 2, 280);
 
-            // Affichage des comptes après modification
             displayAccounts(conn);
 
         } catch (SQLException e) {
